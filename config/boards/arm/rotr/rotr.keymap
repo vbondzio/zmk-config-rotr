@@ -4,39 +4,89 @@
 #include <dt-bindings/zmk/bt.h>
 
 &inc_dec_kp {
-	triggers-per-rotation = <4>;
+	triggers-per-rotation = <8>;
 };
 &def_lshft {
-	triggers-per-rotation = <4>;
+	triggers-per-rotation = <8>;
 };
 
 / {
 	keymap {
 		compatible = "zmk,keymap";
 
+        // guide: https://docs.google.com/document/d/1nOHC0R_G6HR0cCJJgpj22CC5Q_K_o-7oYNo1CTE4pvk/
+        // discord: https://discord.com/channels/729010394756153384/729015812580704316
+
 		default_layer {
-			//PREV | PLAY/PAUSE | NEXT
-			bindings = <&kp C_MUTE &lt 4 F13 &kp C_PP>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-		one {
-			//PREV | PLAY/PAUSE | NEXT
+
+            ///////////////////
+			// 
+			// default media controls
+            //
+            // F1: Previous Track
+            // F2: Play / Pause
+            // F3: Next Track
+            //
+            ///////////////////
+            
 			bindings = <&kp C_PREV &lt 4 C_PP &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            ledoverride;
+            // purple
+            r = <204>;
+            g = <136>;
+            b = <153>; 
+            
 		};
-		two {
-			//PREV | PLAY/PAUSE | NEXT
-			bindings = <&kp LEFT &lt 4 SPACE &kp RIGHT>;
-			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
-		};
-		three {
-			//PREV | PLAY/PAUSE | NEXT
+
+        one {
+
+            ///////////////////
+			// 
+			// 2nd vendor default layer (Livid's original)
+            // https://discord.com/channels/729010394756153384/729015812580704316/981159171586146314
+            //
+            // F1: Mute / Unmute Sound
+            // F2: F13
+            // F3: Play / Pause
+            //
+            ///////////////////
+            
 			bindings = <&kp C_MUTE &lt 4 F13 &kp C_PP>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            ledoverride;
+            // gold
+            r = <255>;
+            g = <215>;
+            b = <0>;
+
 		};
+
 		shift {
-			//PREV | PLAY/PAUSE | NEXT
+            
+            ///////////////////
+            //
+            // select from available layers
+            //
+			// F1: Bluetooth Clear Bond
+            // https://zmk.dev/docs/behaviors/bluetooth
+            // F2: Transparent 
+            // hold and turn knop to switch between layers
+            // F3: Toggle RGB On / Off
+            // TODO: check what this does for switch layer only RGB
+            //
+            ///////////////////
+
+
+            // https://discord.com/channels/729010394756153384/729015812580704316/995791016131039485
+            label = "shift";
 			bindings = <&bt BT_CLR &trans &rgb_ug RGB_TOG>;
 			sensor-bindings = <&def_lshft>;
+            // white
+            r = <255>;
+            g = <255>;
+            b = <255>;
+
 		};
 	};
 };
