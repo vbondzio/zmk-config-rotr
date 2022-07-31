@@ -82,6 +82,7 @@
 			label = "shift";
 			bindings = <&bt BT_CLR &trans &rgb_ug RGB_TOG>;
 			sensor-bindings = <&def_lshft>;
+			ledoverride;
 			// white
 			r = <255>;
 			g = <255>;
