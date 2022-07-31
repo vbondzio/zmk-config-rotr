@@ -24,12 +24,13 @@
 			// default media controls
 			//
 			// F1: Previous Track
-			// F2: Play / Pause
+			// F2: Play / Pause 
+			//	long press -> switch: https://zmk.dev/docs/behaviors/layers#behavior-binding-1
 			// F3: Next Track
 			//
 			///////////////////
 
-			bindings = <&kp C_PREV &lt 4 C_PP &kp C_NEXT>;
+			bindings = <&kp C_PREV &lt 2 C_PP &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride;
 			// purple
@@ -44,15 +45,16 @@
 			///////////////////
 			// 
 			// 2nd vendor default layer (Livid's original)
-			// https://discord.com/channels/729010394756153384/729015812580704316/981159171586146314
+			// 	https://discord.com/channels/729010394756153384/729015812580704316/981159171586146314
 			//
 			// F1: Mute / Unmute Sound
 			// F2: F13
+			//	long press -> switch: https://zmk.dev/docs/behaviors/layers#behavior-binding-1
 			// F3: Play / Pause
 			//
 			///////////////////
 
-			bindings = <&kp C_MUTE &lt 4 F13 &kp C_PP>;
+			bindings = <&kp C_MUTE &lt 2 F13 &kp C_PP>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride;
 			// gold
@@ -69,11 +71,11 @@
 			// select from available layers
 			//
 			// F1: Bluetooth Clear Bond
-			// https://zmk.dev/docs/behaviors/bluetooth
+			// 	https://zmk.dev/docs/behaviors/bluetooth
 			// F2: Transparent 
-			// hold and turn knop to switch between layers
+			// 	hold and turn knop to switch between layers
 			// F3: Toggle RGB On / Off
-			// TODO: check what this does for switch layer only RGB
+			// 	TODO: check what this does for switch layer only RGB
 			//
 			///////////////////
 
