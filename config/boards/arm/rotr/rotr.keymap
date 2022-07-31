@@ -33,10 +33,10 @@
 			bindings = <&kp C_PREV &lt 2 C_PP &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride;
-			// purple
-			r = <204>;
-			g = <136>;
-			b = <153>; 
+			// gold
+			r = <255>;
+			g = <215>;
+			b = <0>;
 
 		};
 
@@ -57,10 +57,10 @@
 			bindings = <&kp C_MUTE &lt 2 F13 &kp C_PP>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride;
-			// gold
-			r = <255>;
-			g = <215>;
-			b = <0>;
+			// purple
+			r = <204>;
+			g = <136>;
+			b = <153>;
 
 		};
 
@@ -84,11 +84,6 @@
 			label = "shift";
 			bindings = <&bt BT_CLR &trans &rgb_ug RGB_TOG>;
 			sensor-bindings = <&def_lshft>;
-			ledoverride;
-			// white
-			r = <255>;
-			g = <255>;
-			b = <255>;
 
 		};
 	};
