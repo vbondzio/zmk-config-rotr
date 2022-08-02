@@ -4,10 +4,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 &inc_dec_kp {
-	triggers-per-rotation = <8>;
+	triggers-per-rotation = <10>;
 };
 &def_lshft {
-	triggers-per-rotation = <8>;
+	triggers-per-rotation = <10>;
 };
 
 / {
@@ -19,32 +19,32 @@
 
 		default_layer {
 
-			///////////////////
+			/////////////////// layer 0 ///////////////////
 			// 
-			// default media controls
+			////// default media controls
 			//
 			// F1: Previous Track
 			// F2: Play / Pause 
 			//	long press -> switch: https://zmk.dev/docs/behaviors/layers#behavior-binding-1
 			// F3: Next Track
 			//
-			///////////////////
+			/////////////////// layer 0 ///////////////////
 
 			bindings = <&kp C_PREV &lt 2 C_PP &kp C_NEXT>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 			ledoverride;
-			// gold
-			r = <255>;
-			g = <215>;
-			b = <0>;
+			// brass
+			r = <181>;
+			g = <166>;
+			b = <66>;
 
 		};
 
 		one {
 
-			///////////////////
+			/////////////////// layer 1 ///////////////////
 			// 
-			// 2nd vendor default layer (Livid's original)
+			////// 2nd vendor default layer (Livid's original)
 			// 	https://discord.com/channels/729010394756153384/729015812580704316/981159171586146314
 			//
 			// F1: Mute / Unmute Sound
@@ -52,7 +52,7 @@
 			//	long press -> switch: https://zmk.dev/docs/behaviors/layers#behavior-binding-1
 			// F3: Play / Pause
 			//
-			///////////////////
+			/////////////////// layer 1 ///////////////////
 
 			bindings = <&kp C_MUTE &lt 2 F13 &kp C_PP>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -66,23 +66,23 @@
 
 		shift {
 
-			///////////////////
+			/////////////////// layer 2 ///////////////////
 			//
-			// select from available layers
+			////// select from available layers
 			//
 			// F1: Bluetooth Clear Bond
 			// 	https://zmk.dev/docs/behaviors/bluetooth
 			// F2: Transparent 
-			// 	hold and turn knop to switch between layers
-			// F3: Toggle RGB On / Off
-			// 	TODO: check what this does for switch layer only RGB
+			// 	hold key and turn knob to switch between layers
+			// F3: Enter BootLoader mode
+			// 	instead of pressing the physical reset button twice
+			//	https://zmk.dev/docs/behaviors/reset
 			//
-			///////////////////
-
+			/////////////////// layer 2 ///////////////////
 
 			// https://discord.com/channels/729010394756153384/729015812580704316/995791016131039485
 			label = "shift";
-			bindings = <&bt BT_CLR &trans &rgb_ug RGB_TOG>;
+			bindings = <&bt BT_CLR &trans &bootloader>;
 			sensor-bindings = <&def_lshft>;
 
 		};
